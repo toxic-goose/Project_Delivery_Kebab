@@ -7,10 +7,9 @@ import  UserValidator  from "../../../../entities/User.validator";
 import  UserApi  from "../../../../entities/UserApi";
 
 const INITIAL_INPUTS_DATA = {
-  username: "",
+  user_name: "",
   email: "",
   password: "",
-  repeatPassword: "",
 };
 
 export default function SignUpForm({ setUser }) {
@@ -50,17 +49,17 @@ export default function SignUpForm({ setUser }) {
     }
   };
 
-  const { username, email, password, repeatPassword } = inputs;
+  const { user_name, email, password } = inputs;
 
   return (
     <form onSubmit={onSubmitHandler}>
       <input
         type="text"
-        name="username"
+        name="user_name"
         placeholder="Имя пользователя"
         autoFocus
         onChange={onChangeHandler}
-        value={username}
+        value={user_name}
       />
 
       <input
@@ -79,13 +78,6 @@ export default function SignUpForm({ setUser }) {
         value={password}
       />
 
-      <input
-        type="password"
-        name="repeatPassword"
-        placeholder="Повторите пароль"
-        onChange={onChangeHandler}
-        value={repeatPassword}
-      />
 
       <button type="submit">Зарегистрироваться</button>
     </form>

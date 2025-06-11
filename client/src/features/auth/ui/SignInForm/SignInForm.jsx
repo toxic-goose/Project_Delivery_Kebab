@@ -22,11 +22,6 @@ export default function SignInForm({ setUser }) {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-
-    const { isValid, error } = UserValidator.validate(inputs);
-
-    if (!isValid) return alert(error);
-
     try {
       const response = await UserApi.login(inputs);
 

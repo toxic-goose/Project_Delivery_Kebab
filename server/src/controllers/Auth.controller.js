@@ -13,10 +13,11 @@ class AuthController {
   // * контроллер на создание
   static async register(req, res) {
     try {
-      const { login, email, password } = req.body;
+      const { user_name, email, password } = req.body;
+      console.log(req.body);
       // * Применяем валидатор
       const { isValid, error } = UserValidator.validate({
-        login,
+        user_name,
         email,
         password,
       });
@@ -45,7 +46,7 @@ class AuthController {
           );
         } else {
           const user = await UserService.registerUser({
-            login,
+            user_name,
             email: normalizedEmail,
             password: hashedPassword,
           });

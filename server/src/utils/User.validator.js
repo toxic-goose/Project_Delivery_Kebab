@@ -22,10 +22,10 @@ class UserValidator {
     }
   }
 
-  static validate({ login, email, password }) {
-    if (!login || !email || !password ||
-        typeof login !== 'string' || typeof mail !== 'string' || typeof password !== 'string' ||
-        login.trim().length === 0 || email.trim().length === 0 || password.trim().length === 0
+  static validate({ user_name, email, password }) {
+    if (!user_name || !email || !password ||
+        typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string' ||
+        user_name.trim().length === 0 || email.trim().length === 0 || password.trim().length === 0
     ) {
       return { isValid: false, error: 'Создание пользователя с такими полями не доступно' }
     }

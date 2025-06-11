@@ -8,24 +8,24 @@ import { setAccessToken } from "./shared/lib/axiosInstance";
 import UserApi from "./entities/UserApi";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    UserApi.refresh()
-      .then(({ error, data, statusCode }) => {
-        if (error) {
-          setUser(null);
-          return;
+    const getUser = async () => {
+      try {
+        const data = await UserApi.refresh()
+        console.log("refresh data:", data)
+        if (data.statusCode === 200 && data.data.accessToken) {
+          // ! ! ! ! ! !
+          setUser((pre) => ({...pre, ...data.data.user}))
+          setAccessToken(data.data.accessToken)
         }
-        if (statusCode === 200) {
-          setUser(data.user);
-          setAccessToken(data.accessToken);
-        }
-      })
-      .catch(({ message }) => {
-        console.log(message);
-      });
-  }, []);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getUser()
+  }, [])
 
   return (
     <BrowserRouter>
