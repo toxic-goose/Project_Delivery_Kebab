@@ -1,10 +1,10 @@
-const router = require('express').Router()
+const router = require("express").Router();
 
-const path = require('path')
+const path = require("path");
 
-const { checkBody, checkId } = require('../middlewares/checkBody')
+const { checkBody, checkId } = require("../middlewares/checkBody");
 
-const UserController = require('../controllers/User.controller')
+const UserController = require("../controllers/User.controller");
 
 // * /users/
 // router.get('/', UserController.getAll)
@@ -39,20 +39,18 @@ const UserController = require('../controllers/User.controller')
 // * /users/:id
 // router.get('/:id', UserController.getOne)
 
+const verifyAccessToken = require("../middlewares/verifyAccessToken");
 
-const verifyAccessToken = require('../middlewares/verifyAccessToken')
-
-
-router.get('/register', (req, res) => {
-  console.log(req.query)
-  res.status(200).sendFile(path.resolve(__dirname, '../registerForm.html'))
-})
+router.get("/register", (req, res) => {
+  console.log(req.query);
+  res.status(200).sendFile(path.resolve(__dirname, "../registerForm.html"));
+});
 
 router
-  .get('/', UserController.getAll)
+  .get("/", UserController.getAll)
   // .post('/register', checkBody, UserController.register)
-  .get('/:id', UserController.getOne)
-  .delete('/:id', verifyAccessToken, checkId, UserController.delete)
-  .put('/:id', verifyAccessToken, UserController.update)
+  .get("/:id", UserController.getOne)
+  .delete("/:id", verifyAccessToken, checkId, UserController.delete)
+  .put("/:id", verifyAccessToken, UserController.update);
 
-module.exports = router
+module.exports = router;
