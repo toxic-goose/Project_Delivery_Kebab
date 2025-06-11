@@ -1,8 +1,8 @@
-export class UserValidator {
+export default class UserValidator {
 
-  static validateMail(mail) {
+  static validateMail(email) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailPattern.test(mail)
+    return emailPattern.test(email)
   }
 
   static validatePassword(password) {
@@ -22,19 +22,20 @@ export class UserValidator {
     }
   }
 
-  static validate({ login, mail, password }) {
-    if (!login || !mail || !password ||
-        typeof login !== 'string' || typeof mail !== 'string' || typeof password !== 'string' ||
-        login.trim().length === 0 || mail.trim().length === 0 || password.trim().length === 0
+  static validate({ user_name, email, phone, password }) {
+    console.log(user_name, phone, email, password);
+    if (!user_name || !email || !phone || !password ||
+        typeof user_name !== 'string' || typeof email !== 'string' || typeof phone !== 'string' || typeof password !== 'string' || 
+        user_name.trim().length === 0 || email.trim().length === 0 || password.trim().length === 0
     ) {
       return { isValid: false, error: 'Создание пользователя с такими полями не доступно' }
     }
 
-    if (!this.validateMail(mail)) {
+    if (!this.validateMail(email)) {
       return { isValid: false, error: 'Неподдерживаемый формат почты' }
     }
     if (!this.validatePassword(password)) {
-      return { isValid: false, error: 'Неподдерживаемый формат пароля. Должен быть сиввол, большая буква, маленькая, цифра и не менее 8 символов.' }
+      return { isValid: false, error: 'Неподдерживаемый формат пароля. Должен быть символ, большая буква, маленькая, цифра и не менее 8 символов.' }
     }
 
     return { isValid: true, error: null }
