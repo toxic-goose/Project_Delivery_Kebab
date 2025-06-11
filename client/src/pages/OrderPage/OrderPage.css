@@ -1,0 +1,39 @@
+.orderPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем инпуты по горизонтали */
+  justify-content: center; /* Центрируем инпуты по вертикали */
+  height: 80vh; /* Занимает всю высоту страницы */
+  background-color: #f0f4f0; /* Светлый фон для контраста */
+  padding: 2rem; /* Отступы вокруг формы */
+}
+.orderPage input {
+  width: 300px; /* Ширина инпутов */
+  padding: 0.8rem; /* Отступы внутри инпутов */
+  margin: 0.5rem 0; /* Отступы между инпутами */
+  border: 1px solid #71a374; /* Зеленая рамка */
+  border-radius: 8px; /* Закругленные углы */
+  font-size: 1rem; /* Размер шрифта */
+  font-family: 'Poppins', sans-serif; /* Шрифт */
+  transition: border-color 0.3s ease; /* Плавный переход для рамки */
+}
+.orderPage input:focus {
+  outline: none; /* Убираем стандартный контур */
+  border-color: #5c9a6b; /* Цвет рамки при фокусе */
+  box-shadow: 0 0 8px rgba(92, 154, 107, 0.5); /* Тень при фокусе */
+}
+.button {
+  padding: 0.5rem 1rem; /* Отступы внутри кнопки */
+  background-color: #71a374; /* Зеленый фон кнопки */
+  color: white; /* Цвет текста */
+  border: none; /* Убираем стандартную рамку */
+  border-radius: 8px; /* Закругленные углы */
+  cursor: pointer; /* Курсор при наведении */
+  font-size: 1rem; /* Размер шрифта */
+  font-family: 'Poppins', sans-serif; /* Шрифт */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для фона и тени */
+}
+.button:hover {
+  background-color: #5c9a6b; /* Цвет фона при наведении */
+  box-shadow: 0 4px 10px rgba(92, 154, 107, 0.5); /* Тень при наведении */
+}
