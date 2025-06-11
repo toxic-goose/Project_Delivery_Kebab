@@ -38,7 +38,7 @@ const serverConfig = (app) => {
   // * Подключение самописной мидлварки
   app.use(removeXPoweredBy)
 
-  app.use('/api/v1.0', indexRouter)
+  app.use('/api', indexRouter)
 }
 
 module.exports = serverConfig
