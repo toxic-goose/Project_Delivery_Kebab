@@ -5,7 +5,6 @@
   justify-content: center; /* Центрируем инпуты по вертикали */
   height: 80vh; /* Занимает всю высоту страницы */
   background-color: #f0f4f0; /* Светлый фон для контраста */
-  padding: 2rem; /* Отступы вокруг формы */
 }
 .orderPage input {
   width: 300px; /* Ширина инпутов */
@@ -39,8 +38,8 @@
 }
 .drag-drop-area {
     width: 300px; /* Ширина области перетаскивания */
-    height: 200px; /* Высота области перетаскивания */
-    border: 2px dashed #71a374; /* Пунктирная рамка */
+    height: 170px; /* Высота области перетаскивания */
+    border: 2px solid #71a374; /*  рамка */
     border-radius: 8px; /* Закругленные углы */
     display: flex;
     align-items: center;
@@ -51,7 +50,7 @@
     flex-direction: column;
     box-sizing: border-box;
     text-align: center;
-    overflow: hidden;
+
 }
 .drag-drop-area:hover {
     background-color: #e3f3e9; /* Цвет фона при наведении */
@@ -67,7 +66,7 @@
     width: 100%; /* Занимает всю ширину контейнера */
     height: 100%; /* Занимает всю высоту контейнера */
     border-radius: 8px; /* Закругленные углы для изображения */
-    object-fit: cover;
+
 }
 .remove-button {
     margin-top: 10px; /* Отступ сверху */
