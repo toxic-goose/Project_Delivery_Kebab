@@ -22,7 +22,7 @@
   box-shadow: 0 0 8px rgba(92, 154, 107, 0.5); /* Тень при фокусе */
 }
 .button {
-  padding: 0.5rem 1rem; /* Отступы внутри кнопки */
+  padding: 0.5rem 1rem; 
   background-color: #71a374; /* Зеленый фон кнопки */
   color: white; /* Цвет текста */
   border: none; /* Убираем стандартную рамку */
