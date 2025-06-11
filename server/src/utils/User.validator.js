@@ -1,8 +1,8 @@
 class UserValidator {
 
-  static validateMail(mail) {
+  static validateMail(email) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailPattern.test(mail)
+    return emailPattern.test(email)
   }
 
   static validatePassword(password) {
@@ -22,15 +22,15 @@ class UserValidator {
     }
   }
 
-  static validate({ login, mail, password }) {
-    if (!login || !mail || !password ||
+  static validate({ login, email, password }) {
+    if (!login || !email || !password ||
         typeof login !== 'string' || typeof mail !== 'string' || typeof password !== 'string' ||
         login.trim().length === 0 || mail.trim().length === 0 || password.trim().length === 0
     ) {
       return { isValid: false, error: 'Создание пользователя с такими полями не доступно' }
     }
 
-    if (!this.validateMail(mail)) {
+    if (!this.validateMail(email)) {
       return { isValid: false, error: 'Неподдерживаемый формат почты' }
     }
     if (!this.validatePassword(password)) {
