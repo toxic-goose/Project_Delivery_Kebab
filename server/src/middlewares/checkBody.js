@@ -1,9 +1,9 @@
 const { User } = require('../db/models')
 
 function checkBody(req, res, next) {
-  const { order_name, img_path, description, price, sale, location } = req.body
-  if (order_name || !img_path || !description || !price || !sale || !location) {
-    res.send('Все поля должны быть заполнены. ')
+  const { login, email, phone, password } = req.body
+  if (!email || !password) {
+    res.send('Все поля должны быть заполнены. Ответ из мидлварки')
   } else {
     next()
   }
@@ -16,7 +16,7 @@ async function checkId(req, res, next) {
     if (user) {
       next()
     } else {
-      res.status(400).send('Заказ не найден')
+      res.status(400).send('Пользователь не найден')
     }
   } else {
     res.status(400).send('Невалидный id. Должен быть числом')

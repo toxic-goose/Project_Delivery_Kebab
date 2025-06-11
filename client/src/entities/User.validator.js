@@ -22,10 +22,10 @@ export default class UserValidator {
     }
   }
 
-  static validate({ user_name, email, password }) {
-    console.log(user_name, email, password);
-    if (!user_name || !email || !password ||
-        typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string' ||
+  static validate({ user_name, email, phone, password }) {
+    console.log(user_name, phone, email, password);
+    if (!user_name || !email || !phone || !password ||
+        typeof user_name !== 'string' || typeof email !== 'string' || typeof phone !== 'string' || typeof password !== 'string' || 
         user_name.trim().length === 0 || email.trim().length === 0 || password.trim().length === 0
     ) {
       return { isValid: false, error: 'Создание пользователя с такими полями не доступно' }

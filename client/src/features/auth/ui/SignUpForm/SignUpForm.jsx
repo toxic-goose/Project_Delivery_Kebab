@@ -9,6 +9,7 @@ import  UserApi  from "../../../../entities/UserApi";
 const INITIAL_INPUTS_DATA = {
   user_name: "",
   email: "",
+  phone: "",
   password: "",
 };
 
@@ -49,14 +50,14 @@ export default function SignUpForm({ setUser }) {
     }
   };
 
-  const { user_name, email, password } = inputs;
+  const { user_name, email, phone, password } = inputs;
 
   return (
     <form onSubmit={onSubmitHandler}>
       <input
         type="text"
         name="user_name"
-        placeholder="Имя пользователя"
+        placeholder="Введите имя пользователя:"
         autoFocus
         onChange={onChangeHandler}
         value={user_name}
@@ -65,15 +66,23 @@ export default function SignUpForm({ setUser }) {
       <input
         type="email"
         name="email"
-        placeholder="Email"
+        placeholder="Введите email:"
         onChange={onChangeHandler}
         value={email}
+      />
+
+        <input
+        type="tel"
+        name="phone"
+        placeholder="Введите номер телефона:"
+        onChange={onChangeHandler}
+        value={phone}
       />
 
       <input
         type="password"
         name="password"
-        placeholder="Пароль"
+        placeholder="Введите пароль"
         onChange={onChangeHandler}
         value={password}
       />
