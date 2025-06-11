@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-
 import { setAccessToken } from '../../../../shared/lib/axiosInstance';
-
 import UserApi from '../../../../entities/UserApi';
-import UserValidator from '../../../../entities/User.validator';
 
 const INITIAL_INPUTS_DATA = {
   email: '',
