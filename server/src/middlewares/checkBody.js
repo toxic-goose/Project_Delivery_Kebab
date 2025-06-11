@@ -6,7 +6,7 @@ function checkBody(req, res, next) {
     res.send('Все поля должны быть заполнены. Ответ из мидлварки')
   } else {
     next()
-  }
+  } 
 }
 
 async function checkId(req, res, next) {
