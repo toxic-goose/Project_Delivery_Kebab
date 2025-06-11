@@ -28,6 +28,7 @@
 }
 
 .header__link_active {
+  display: flex;
   background-color: #FFF;
   color: #40ad75;
   box-shadow: 0 0 6px rgba(255, 107, 1, 0.8);

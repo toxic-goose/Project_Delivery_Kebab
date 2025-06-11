@@ -14,6 +14,10 @@ const INITIAL_INPUTS_DATA = {
 };
 
 export default function SignUpForm({ setUser }) {
+  const [role, setRole] = useState('buyer'); 
+  const handleRoleChange = (e) => {
+    setRole(e.target.value);
+  };
   const [inputs, setInputs] = useState(INITIAL_INPUTS_DATA);
   const navigate = useNavigate();
 
@@ -24,9 +28,7 @@ export default function SignUpForm({ setUser }) {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const { isValid, error } = UserValidator.validate(inputs);
-
     if (!isValid) return alert(error);
-
     try {
       const {
         statusCode,
@@ -53,7 +55,15 @@ export default function SignUpForm({ setUser }) {
   const { user_name, email, phone, password } = inputs;
 
   return (
+
     <form onSubmit={onSubmitHandler}>
+      <label>
+      Выберите роль:
+      <select value={role} onChange={handleRoleChange}>
+        <option value="buyer">Покупатель</option>
+        <option value="courier">Курьер</option>
+      </select>
+      </label>
       <input
         type="text"
         name="user_name"
@@ -90,5 +100,6 @@ export default function SignUpForm({ setUser }) {
 
       <button type="submit">Зарегистрироваться</button>
     </form>
+
   );
 }

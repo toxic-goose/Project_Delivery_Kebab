@@ -38,17 +38,8 @@ export default function Header({ user, setUser }) {
           `header__link ${isActive ? "header__link_active" : ""}`
         }
       >
-        Счетчики
+        Заказы
       </NavLink>
-      <NavLink
-        to="/tasks"
-        className={({ isActive }) =>
-          `header__link ${isActive ? "header__link_active" : ""}`
-        }
-      >
-        Задачи
-      </NavLink>
-
       {!user && (
         <NavLink
           to="/auth"
@@ -56,7 +47,7 @@ export default function Header({ user, setUser }) {
             `header__link ${isActive ? "header__link_active" : ""}`
           }
         >
-          Войти
+          Войти / Зарегистрироваться
         </NavLink>
       )}
 
