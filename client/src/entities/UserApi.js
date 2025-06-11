@@ -1,6 +1,6 @@
-import { axiosInstance } from '../../shared/lib/axiosInstance'
+import { axiosInstance } from '../shared/lib/axiosInstance'
 
-export class UserApi {
+export default class UserApi {
     static async register(inputs){
         const {data } = await axiosInstance.post('/auth/register',
             inputs

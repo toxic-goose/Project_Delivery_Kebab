@@ -25,7 +25,7 @@ class UserValidator {
   static validate({ login, email, password }) {
     if (!login || !email || !password ||
         typeof login !== 'string' || typeof mail !== 'string' || typeof password !== 'string' ||
-        login.trim().length === 0 || mail.trim().length === 0 || password.trim().length === 0
+        login.trim().length === 0 || email.trim().length === 0 || password.trim().length === 0
     ) {
       return { isValid: false, error: 'Создание пользователя с такими полями не доступно' }
     }

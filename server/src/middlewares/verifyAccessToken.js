@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 const { formatResponse } = require('../utils/formatResponse')
 
-const { ACCESS_TOKEN } = process.env;
+const { SECRET_ACCESS_TOKEN } = process.env;
 
 const verifyAccessToken = (req, res, next) => {
   try {
@@ -10,7 +10,7 @@ const verifyAccessToken = (req, res, next) => {
     // * сплитим её и достаё второй элемент
     const accessToken = req.headers.authorization.split(' ')[1]
     console.log(" accessToken:", accessToken)
-    const { user } = jwt.verify(accessToken, ACCESS_TOKEN)
+    const { user } = jwt.verify(accessToken, SECRET_ACCESS_TOKEN)
     res.locals.user = user
     next()
   } catch (error) {
