@@ -16,6 +16,22 @@ export default function OrderPage() {
         setInputs((prev) => ({ ...prev, [event.target.name]: event.target.value }));
     };
 
+    const handleDrop = (event) => {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        if (file) {
+            const filePath = URL.createObjectURL(file); 
+            setInputs((prev) => ({ ...prev, img_path: filePath })); 
+        }
+    };
+    const handleDragOver = (event) => {
+        event.preventDefault(); 
+    };
+
+    const handleRemoveImage = () => {
+        setInputs((prev) => ({ ...prev, img_path: "" })); // Сбрасываем путь к изображению
+    };
+
     const { order_name, img_path, description, price, sale } = inputs;
 
     return (
@@ -30,14 +46,29 @@ export default function OrderPage() {
             value={order_name}
         />
 
-        <input
-            type="text"
-            name="img_path"
-            placeholder="Drag-n-drop"
-            onChange={onChangeHandler}
-            value={img_path}
-        />
+        <div
+            className='drag-drop-area'
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+        >
+            {img_path ? (
 
+                <div className="image-wrapper">
+                    <img src={img_path} alt="Uploaded" className="uploaded-image" />
+                </div>
+            ) : (
+                <p>Перетащите изображение сюда или нажмите, чтобы выбрать файл</p>
+            )}
+        </div>
+        {img_path && (
+        <button
+            type="button"
+            onClick={handleRemoveImage}
+            className="remove-button"
+        >
+            Удалить изображение
+        </button>
+        )}
         <input
             type="text"
             name="description"

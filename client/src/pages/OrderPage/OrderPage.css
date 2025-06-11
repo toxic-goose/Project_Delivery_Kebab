@@ -37,3 +37,50 @@
   background-color: #5c9a6b; /* Цвет фона при наведении */
   box-shadow: 0 4px 10px rgba(92, 154, 107, 0.5); /* Тень при наведении */
 }
+.drag-drop-area {
+    width: 300px; /* Ширина области перетаскивания */
+    height: 200px; /* Высота области перетаскивания */
+    border: 2px dashed #71a374; /* Пунктирная рамка */
+    border-radius: 8px; /* Закругленные углы */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 0; /* Отступы */
+    background-color: #f8fff8; /* Светлый фон */
+    transition: background-color 0.3s ease; /* Плавный переход для фона */
+    flex-direction: column;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+}
+.drag-drop-area:hover {
+    background-color: #e3f3e9; /* Цвет фона при наведении */
+}
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Расстояние между картинкой и кнопкой */
+    width: 100%;
+}
+.uploaded-image {
+    width: 100%; /* Занимает всю ширину контейнера */
+    height: 100%; /* Занимает всю высоту контейнера */
+    border-radius: 8px; /* Закругленные углы для изображения */
+    object-fit: cover;
+}
+.remove-button {
+    margin-top: 10px; /* Отступ сверху */
+    padding: 0.5rem 1rem; /* Отступы внутри кнопки */
+    background-color: #d9534f; /* Красный фон для кнопки удаления */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 8px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    font-size: 0.9rem; /* Размер шрифта */
+    transition: background-color 0.3s ease; /* Плавный переход для фона */
+    width: fit-content;
+}
+.remove-button:hover {
+    background-color: #c9302c; /* Темнее при наведении */
+}
