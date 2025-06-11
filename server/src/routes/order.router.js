@@ -1,0 +1,26 @@
+const router = require('express').Router()
+
+const path = require('path')
+
+const { checkBody, checkId } = require('../middlewares/checkBody')
+
+const OrderController = require('../controllers/Order.controller')
+
+
+
+
+
+
+// router.get('/register', (req, res) => {
+// console.log(req.query)
+// res.status(200).sendFile(path.resolve(__dirname, '../registerForm.html'))
+// })
+
+router
+.get('/', OrderController.getAll)
+.post('/register', checkBody, OrderController.register)
+.delete('/:id', checkId, OrderController.delete)
+.get('/:id', OrderController.getOne)
+.put('/:id', OrderController.update)
+
+module.exports = router
