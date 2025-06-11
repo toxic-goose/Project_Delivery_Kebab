@@ -2,7 +2,7 @@ const router = require('express').Router()
 
 const path = require('path')
 
-const { checkBody, checkId } = require('../middlewares/checkBody')
+// const { checkBody, checkId } = require('../middlewares/checkBody')
 
 const OrderController = require('../controllers/Order.controller')
 
@@ -18,8 +18,8 @@ const OrderController = require('../controllers/Order.controller')
 
 router
 .get('/', OrderController.getAll)
-.post('/register', checkBody, OrderController.register)
-.delete('/:id', checkId, OrderController.delete)
+.post('/register', OrderController.register)
+.delete('/:id', OrderController.delete)
 .get('/:id', OrderController.getOne)
 .put('/:id', OrderController.update)
 
