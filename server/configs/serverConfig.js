@@ -6,7 +6,7 @@ const path = require('path')
 const cors = require('cors')
 
 const removeXPoweredBy = require('../middlewares/removeHeader')
-const getGreetings = require('../middlewares/locals')
+
 
 const indexRouter = require('../routes/index.router')
 
@@ -37,9 +37,6 @@ const serverConfig = (app) => {
 
   // * Подключение самописной мидлварки
   app.use(removeXPoweredBy)
-  
-  // ? Этого может и не быть
-  app.use(getGreetings)
 
   app.use('/api/v1.0', indexRouter)
 }
