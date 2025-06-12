@@ -36,6 +36,7 @@ return (
         <hr />
         <h3>{el.order_name}</h3>
         <h4>{el.description}</h4>
+        <h4>{el.description}</h4>
         <h4>{el.price}</h4>
         <hr />
         </div> 
