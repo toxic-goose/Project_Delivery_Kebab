@@ -8,6 +8,7 @@ import OrdersPages from "./pages/OrdersPages/OrdersPages";
 import OrdersPagesAll from "./pages/OrdersPages/OrdersPagesAll";
 import { setAccessToken } from "./shared/lib/axiosInstance";
 import UserApi from "./entities/UserApi";
+import BasketPage from "./pages/BasketPage/BasketPage";
 
 
 function App() {
@@ -38,8 +39,8 @@ function App() {
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route path="/page" element={<OrdersPages />} />
           <Route path="/pageall" element={<OrdersPagesAll />} />
+          <Route path="/basket" element={<BasketPage />} />
           <Route path="/orderPage/:orderId" element={<OrderPage user={user}/>} />
-
         </Route>
       </Routes>
     </BrowserRouter>
