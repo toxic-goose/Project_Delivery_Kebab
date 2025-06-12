@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './OrderPage.css'
 import { useParams } from 'react-router';
 import OrderForm from '../../features/auth/ui/OrderForm/OrderForm';
@@ -14,7 +14,7 @@ export default function OrderPage({ user }) {
     {user.is_buyer ? (
         <OrderCard orderId={orderId} />
     ) : (
-        <OrderForm />
+        <OrderForm orderId={orderId}/>
     )}
     </>
     )
