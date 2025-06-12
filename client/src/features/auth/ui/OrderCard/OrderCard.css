@@ -1,0 +1,67 @@
+.order-card {
+  max-width: 400px;
+  background: #1e293b; /* slate-800 dark background */
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  overflow: hidden;
+  color: #e0e7ff; /* slate-100 text */
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  transition: transform 0.3s ease;
+}
+.order-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+}
+.order-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #334155; /* slate-700 fallback */
+}
+.order-image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #475569; /* slate-600 */
+  color: #94a3b8; /* slate-400 */
+  font-size: 1rem;
+  font-style: italic;
+  height: 220px;
+  border-radius: 12px;
+}
+.order-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.order-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cbd5e1; /* slate-300 */
+  margin: 0;
+  min-height: 54px;
+}
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.price {
+  color: #06b6d4; /* teal-500 */
+}
+.sale {
+  color: #a78bfa; /* violet-400 */
+  text-decoration: line-through;
+  font-size: 1rem;
+}
