@@ -1,6 +1,5 @@
 const router = require('express').Router()
 
-const path = require('path')
 
 // const { checkBody, checkId } = require('../middlewares/checkBody')
 

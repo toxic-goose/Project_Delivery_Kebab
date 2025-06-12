@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { OrdersApi } from '../../../../entities/OrdersApi';
+import { NavLink } from 'react-router';
 
 const INITIAL_INPUTS_DATA = {
     order_name: "",
@@ -42,7 +43,11 @@ useEffect(() => {
         {sale && sale !== price && (
           <span className="sale">{sale} ₽</span>
         )}
+        <NavLink to={'/basket'}>  
+          <button>Выкупить</button>
+        </NavLink> 
       </div>
+     
     </article>
   );
 }
