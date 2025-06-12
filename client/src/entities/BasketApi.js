@@ -3,7 +3,7 @@ import { axiosInstance } from '../shared/lib/axiosInstance'
 export class BasketApi {
 
     static async getAll() {
-        const { data } = await axiosInstance.get('/order')
+        const { data } = await axiosInstance.get('/basket')
         return data
     }
 

@@ -9,8 +9,8 @@ export default function BasketList() {
         const getBasket = async () => {
             try {
                 const { data } = await BasketApi.getAll()
-                setBasket(data)
                 console.log(data)
+                setBasket(data)
             } catch (error) {
               console.log(error)  
             }
@@ -24,7 +24,7 @@ export default function BasketList() {
       {basket.length ? (
         basket.map((el) => <BasketCard key={el.id} basket={el} />)
       ) : (
-        <h1>Нет полученных Users</h1>
+        <h1>Корзина пуста</h1>
       )}
     </>
   )

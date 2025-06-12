@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
     static associate(models) {
       this.hasMany(models.Backet, { foreignKey: 'order_id' }) 
-      this.belongsTo(models.User, { foreignKey: 'courier_id' }) 
+      this.belongsTo(models.User, { foreignKey: 'courier_id', as: 'Courier' }) 
     }
   }
   Order.init({
