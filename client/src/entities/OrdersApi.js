@@ -23,7 +23,7 @@ export class OrdersApi {
     }
 
     static async update(id, inputs) {
-        const { data } = await axiosInstance.put(`/order${id}`, inputs)
+        const { data } = await axiosInstance.put(`/order/${id}`, inputs)
         return data
     }
 }

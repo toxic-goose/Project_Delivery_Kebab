@@ -39,9 +39,8 @@ function App() {
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route path="/page" element={<OrdersPages />} />
           <Route path="/pageall" element={<OrdersPagesAll />} />
-          <Route path="/orderPage" element={<OrderPage />} />
           <Route path="/basket" element={<BasketPage />} />
-
+          <Route path="/orderPage/:orderId" element={<OrderPage user={user}/>} />
         </Route>
       </Routes>
     </BrowserRouter>
