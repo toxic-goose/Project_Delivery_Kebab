@@ -1,7 +1,10 @@
 import React from 'react'
+import BasketCard from '../BasketCard/BasketCard'
 
-export default function basketList() {
+export default function BasketList() {
   return (
-    <div>basketList</div>
+    <>
+    <BasketCard />
+    </>
   )
 }
