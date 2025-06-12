@@ -23,6 +23,7 @@ static async getOne(req, res) {
     try {
     const { id } = req.params
     const user = await OrderService.getOneOrder(id)
+    console.log(user);
     res.status(200).json(formatResponse({
         statusCode: 200, message: 'Один заказ',
         data: user
