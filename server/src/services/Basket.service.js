@@ -1,11 +1,12 @@
-const { Basket } = require ('../db/models')
+const { Backet } = require ('../db/models')
+const { Order } = require('../db/models')
 
 class BasketService {
 
     //* Получение всех получение заказов
 
     static async getAllBaskets() {
-        const baskets = await Basket.findAll()
+        const baskets = await Backet.findAll()
         const result = baskets.map((el) => el.get({ plain: true }))
     return result
     }
@@ -13,7 +14,7 @@ class BasketService {
     //* Получение одного заказа
 
     static async getOneBasket(id) {
-        const basket = await Basket.findByPk(id);
+        const basket = await Backet.findByPk(id);
         const result = basket.get({ plain: true })
     return result
     }

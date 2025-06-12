@@ -24,7 +24,7 @@ export default function BasketList() {
       {basket.length ? (
         basket.map((el) => <BasketCard key={el.id} basket={el} />)
       ) : (
-        <h1>Нет полученных Users</h1>
+        <h1>Корзина пуста</h1>
       )}
     </>
   )
