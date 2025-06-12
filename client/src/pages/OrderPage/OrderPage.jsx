@@ -1,15 +1,20 @@
 import React from 'react'
 import { useState } from 'react';
 import './OrderPage.css'
+import OrderApi from '../../entities/OrderApi';
+import { useNavigate } from 'react-router';
+
+const INITIAL_INPUTS_DATA = {
+    order_name: "",
+    img_path: "",
+    description: "",
+    price: "",
+    sale: ""
+};
 
 export default function OrderPage() {
-    const INITIAL_INPUTS_DATA = {
-        order_name: "",
-        img_path: "",
-        description: "",
-        price: "",
-        sale: ""
-    };
+    const navigate = useNavigate()
+
     const [inputs, setInputs] = useState(INITIAL_INPUTS_DATA);
 
     const onChangeHandler = (event) => {
@@ -32,12 +37,35 @@ export default function OrderPage() {
         setInputs((prev) => ({ ...prev, img_path: "" })); // Сбрасываем путь к изображению
     };
 
+    const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    try {
+        const {
+        statusCode,
+        error: responseError,
+    } = await OrderApi.createOrder(inputs);
+
+    if (responseError) {
+        alert(responseError);
+        return;
+    }
+
+    if (statusCode === 200) {
+        setInputs(INITIAL_INPUTS_DATA);
+        navigate("/");
+    }
+    } catch (error) {
+        console.log(error);
+        alert(error.message);
+    }
+    };
+
     const { order_name, img_path, description, price, sale } = inputs;
 
     return (
     <>
-    <form className='orderPage'>
-        <input
+    <form onSubmit={onSubmitHandler} className='orderPage'>
+        <input 
             type="text"
             name="order_name"
             placeholder="Введите название заказа:"
@@ -45,21 +73,35 @@ export default function OrderPage() {
             onChange={onChangeHandler}
             value={order_name}
         />
-
+        {/* {
+            img_path ? (
+                <div className="image-wrapper">
+                    <img src={img_path} alt="Uploaded" className="uploaded-image" />
+                </div>
+            ) : (
+            <input
+            className='drag-drop-area'
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            type="file"
+            />
+            )
+        } */}
         <div
             className='drag-drop-area'
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-        >
+            type="file"
+        > 
             {img_path ? (
 
                 <div className="image-wrapper">
                     <img src={img_path} alt="Uploaded" className="uploaded-image" />
                 </div>
             ) : (
-                <p>Перетащите изображение сюда или нажмите, чтобы выбрать файл</p>
-            )}
-        </div>
+                <p>Перетащите изображение сюда</p>
+            )} 
+            </div> 
         {img_path && (
         <button
             type="button"
