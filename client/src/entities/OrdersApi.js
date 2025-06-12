@@ -1,7 +1,7 @@
 import { axiosInstance } from '../shared/lib/axiosInstance'
 
 export class OrdersApi {
-    
+
     static async getAll() {
         const { data } = await axiosInstance.get('/order')
         return data
