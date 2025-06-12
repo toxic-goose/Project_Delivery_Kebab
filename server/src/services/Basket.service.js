@@ -4,7 +4,7 @@ class BasketService {
 
     //* Получение всех получение заказов
 
-    static async getAllBasket() {
+    static async getAllBaskets() {
         const baskets = await Basket.findAll()
         const result = baskets.map((el) => el.get({ plain: true }))
     return result
@@ -12,7 +12,7 @@ class BasketService {
 
     //* Получение одного заказа
 
-    static async getOneUser(id) {
+    static async getOneBasket(id) {
         const basket = await Basket.findByPk(id);
         const result = basket.get({ plain: true })
     return result
