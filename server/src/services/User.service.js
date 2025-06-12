@@ -2,9 +2,9 @@ const { User } = require('../db/models')
 
 class UserService {
   // * создание пользователя
-  static async registerUser({ user_name, email, phone, password }) {
+  static async registerUser({ user_name, email, phone, password, is_buyer }) {
     const user = await User.create({ 
-      user_name, email, phone, password
+      user_name, email, phone, password, is_buyer
     })
     const result = user.get({ plain: true })
     return result
