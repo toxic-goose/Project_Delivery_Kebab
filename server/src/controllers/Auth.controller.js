@@ -13,7 +13,7 @@ class AuthController {
   // * контроллер на создание
   static async register(req, res) {
     try {
-      const { user_name, email, phone, password } = req.body;
+      const { user_name, email, phone, password, is_buyer } = req.body;
       console.log(req.body);
       // * Применяем валидатор
       const { isValid, error } = UserValidator.validate({
@@ -51,6 +51,7 @@ class AuthController {
             phone,
             email: normalizedEmail,
             password: hashedPassword,
+            is_buyer
           });
           // * Удаление пароля
           delete user.password;
