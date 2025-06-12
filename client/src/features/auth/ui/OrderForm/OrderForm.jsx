@@ -3,6 +3,7 @@ import { OrdersApi } from "../../../../entities/OrdersApi";
 import { useNavigate } from "react-router";
 import "toastr/build/toastr.min.css";
 import toastr from "toastr"
+import { NavLink } from 'react-router';
 
 const INITIAL_INPUTS_DATA = {
   order_name: "",
@@ -53,7 +54,7 @@ export default function OrderForm({ orderId, user }) {
       if (orderId) {
         await OrdersApi.update(orderId, inputs);
         toastr.info("Заказ успешно обновлён!");
-        navigate("/");
+        navigate("/page");
       } else {
         const { statusCode, error: responseError } =
           await OrdersApi.createOrder(inputs);
@@ -65,7 +66,7 @@ export default function OrderForm({ orderId, user }) {
         if (statusCode === 200) {
           toastr.info("Заказ успешно создан!")
           setInputs(INITIAL_INPUTS_DATA);
-          navigate("/");
+          navigate("/page");
         }
       }
     } catch (error) {
@@ -178,13 +179,13 @@ export default function OrderForm({ orderId, user }) {
         value={sale}
       />
       {orderId ? (
-      <button className="button" type="submit">
-        Обновить
-      </button>
-      ): (
         <button className="button" type="submit">
-          Создать
-      </button>
+          Обновить
+        </button>
+      ): (
+          <button className="button" type="submit">
+            Создать
+        </button>
       )}
     </form>
   );
