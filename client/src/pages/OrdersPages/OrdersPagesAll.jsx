@@ -2,7 +2,12 @@ import React from 'react'
 import { OrdersApi } from '../../entities/OrdersApi'
 import { useState, useEffect } from 'react';
 
+
+
 export default function OrdersPagesAll() {
+
+
+
     const [orders, setOrders] = useState([])
     useEffect(() => {
         const getOrders = async () => {
@@ -22,7 +27,7 @@ export default function OrdersPagesAll() {
 return (
     <div>1234
     {orders.map((el) =>
-        <div key={el.id}>
+        <div key={el.id} element={element}>
         <hr />
         <h3>{el.order_name}</h3>
             <h4>{el.img_path}</h4> 

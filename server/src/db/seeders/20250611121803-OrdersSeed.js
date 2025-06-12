@@ -12,7 +12,7 @@ module.exports = {
         price: 1000,
         sale: 500,
         courier_id: 2,
-        location: 'Москвка,ул. Розы Сябитовой. 38'
+        location: 'Москва, ул. Розы Сябитовой. 38'
       },
       {
         order_name: 'Пакет с не сладким',
@@ -21,7 +21,7 @@ module.exports = {
         price: 500,
         sale: 250,
         courier_id: 3,
-        location: 'Москвка, ул. сына Розы Сябитовой. 38'
+        location: 'Москва, ул. сына Розы Сябитовой. 38'
       },
       {
         order_name: 'Пакет с пакетами',
@@ -30,7 +30,7 @@ module.exports = {
         price: 700,
         sale: 350,
         courier_id: 2,
-        location: 'Москвка, Петровка. 38'
+        location: 'Москва, ул. Петровка, 38'
       },
     ], {})
   },
