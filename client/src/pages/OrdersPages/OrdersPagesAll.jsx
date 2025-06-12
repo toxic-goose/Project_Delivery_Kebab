@@ -35,8 +35,8 @@ return (
         <div key={el.id}>
         <hr />
         <h3>{el.order_name}</h3>
-            <h4>{el.description}</h4>
-            <h4>{el.price}</h4>
+        <h4>{el.description}</h4>
+        <h4>{el.price}</h4>
         <hr />
         </div> 
         // <UserCard orders={orders}  el={el} key={el.id} />
