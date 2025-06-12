@@ -6,7 +6,7 @@ const path = require('path')
 const cors = require('cors')
 
 const removeXPoweredBy = require('../middlewares/removeHeader')
-
+const multer = require('multer')
 
 const indexRouter = require('../routes/index.router')
 
@@ -19,6 +19,27 @@ const corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   credentials: true // * Мы передаём куки на клиент 
 }
+
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'uploads/'); // Папка для сохранения загруженных файлов
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname); // Сохранение файла с оригинальным именем
+    }
+  });
+  const upload = multer({ 
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+      const filetypes = /jpeg|jpg|png|gif/; // Разрешенные типы файлов
+      const mimetype = filetypes.test(file.mimetype);
+      const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+      if (mimetype && extname) {
+        return cb(null, true);
+      }
+      cb('Ошибка: файл должен быть изображением!');
+    }, 
+  });
 
 const serverConfig = (app) => {
   // * Подключаем CORS
@@ -39,6 +60,11 @@ const serverConfig = (app) => {
   app.use(removeXPoweredBy)
 
   app.use('/api', indexRouter)
+
+  app.post('/upload', upload.single('file'), (req, res) => {
+    res.send('Файл загружен успешно!');
+  });
+  
 }
 
 module.exports = serverConfig

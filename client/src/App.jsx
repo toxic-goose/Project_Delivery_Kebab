@@ -11,6 +11,7 @@ import { setAccessToken } from "./shared/lib/axiosInstance";
 
 import UserApi from "./entities/UserApi";
 import BasketPage from "./pages/BasketPage/BasketPage";
+import FileUpload from "./features/auth/ui/FileUploadMulter/FileUpload";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/basket" element={<BasketPage />} />
           <Route path="/orderPage/:orderId" element={<OrderPage user={user}/>} />
           <Route path="/orderPage/new" element={<OrderPage user={user}/>}/>
+          <Route path="/upload" element={<FileUpload />}/>
 
         </Route>
       </Routes>
