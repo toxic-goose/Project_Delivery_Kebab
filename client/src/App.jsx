@@ -8,6 +8,7 @@ import OrdersPages from "./pages/OrderPage/OrdersPages";
 import { setAccessToken } from "./shared/lib/axiosInstance";
 import UserApi from "./entities/UserApi";
 
+
 function App() {
   const [user, setUser] = useState({});
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route path="/page" element={<OrdersPages  />} />
           <Route path="/orderPage" element={<OrderPage />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
