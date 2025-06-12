@@ -3,7 +3,8 @@ import Root from "./app/Root";
 import MainPage from "./pages/Main/MainPage";
 import { useEffect, useState } from 'react';
 import AuthPage from "./pages/Auth/AuthPage";
-import OrdersPages from "./pages/OrdersPages/OrdersPages"
+import OrderPage from "./pages/OrderPage/OrderPage";
+import OrdersPages from "./pages/OrderPage/OrdersPages";
 import { setAccessToken } from "./shared/lib/axiosInstance";
 import UserApi from "./entities/UserApi";
 
@@ -34,6 +35,7 @@ function App() {
           <Route index element={<MainPage user={user} />} />
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route path="/page" element={<OrdersPages  />} />
+          <Route path="/orderPage" element={<OrderPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -92,7 +92,7 @@ export default function SignUpForm({ setUser }) {
       <input
         type="password"
         name="password"
-        placeholder="Введите пароль"
+        placeholder="Введите пароль:"
         onChange={onChangeHandler}
         value={password}
       />

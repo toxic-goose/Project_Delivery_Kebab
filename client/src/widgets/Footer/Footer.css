@@ -1,1 +1,14 @@
-/*
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 3rem;
+  background-color: #40ad75; 
+  box-shadow: 0 4px 12px rgba(255, 107, 1, 0.5);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 16px;
+}
