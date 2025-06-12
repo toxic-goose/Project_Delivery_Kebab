@@ -18,7 +18,7 @@ const OrderController = require('../controllers/Order.controller')
 
 router
 .get('/', OrderController.getAll)
-.post('/register', OrderController.register)
+.post('/createOrder', OrderController.register)
 .delete('/:id', OrderController.delete)
 .get('/:id', OrderController.getOne)
 .put('/:id', OrderController.update)

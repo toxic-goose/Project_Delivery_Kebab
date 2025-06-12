@@ -12,7 +12,7 @@ export default function Header({ user, setUser }) {
     try {
       const response = await UserApi.logout();
       if (response.statusCode === 200) {
-        setUser(null);
+        setUser({});
         setAccessToken("");
         navigate("/");
       } else {
@@ -40,7 +40,7 @@ export default function Header({ user, setUser }) {
       >
         Заказы
       </NavLink>
-      {!user && (
+      {!user.user_name && (
         <NavLink
           to="/auth"
           className={({ isActive }) =>
@@ -51,7 +51,7 @@ export default function Header({ user, setUser }) {
         </NavLink>
       )}
 
-      {user && <button onClick={handleSignOut}>Выход</button>}
+      {user.user_name && <button onClick={handleSignOut}>Выход</button>}
     </header>
   );
 }

@@ -1,8 +1,35 @@
 import React from 'react'
 import { useState } from 'react';
 import './OrderPage.css'
+import OrderApi from '../../entities/OrderApi';
 
 export default function OrderPage() {
+
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();
+        try {
+            const {
+            statusCode,
+            data,
+            error: responseError,
+        } = await OrderApi.register(inputs);
+    
+        if (responseError) {
+            alert(responseError);
+            return;
+        }
+    
+        if (statusCode === 201) {
+            setUser(data.user);
+            setInputs(INITIAL_INPUTS_DATA);
+            navigate("/");
+        }
+        } catch (error) {
+            console.log(error);
+            alert(error.message);
+        }
+    };
+
     const INITIAL_INPUTS_DATA = {
         order_name: "",
         img_path: "",
@@ -37,7 +64,7 @@ export default function OrderPage() {
     return (
     <>
     <form className='orderPage'>
-        <input
+        <input 
             type="text"
             name="order_name"
             placeholder="Введите название заказа:"
@@ -45,21 +72,35 @@ export default function OrderPage() {
             onChange={onChangeHandler}
             value={order_name}
         />
-
-        <div
+        {
+            img_path ? (
+                <div className="image-wrapper">
+                    <img src={img_path} alt="Uploaded" className="uploaded-image" />
+                </div>
+            ) : (
+            <input
             className='drag-drop-area'
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-        >
-            {img_path ? (
+            type="file"
+            />
+            )
+        }
+        {/* <input
+            className='drag-drop-area'
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            type="file"
+        > */}
+            {/* {img_path ? (
 
                 <div className="image-wrapper">
                     <img src={img_path} alt="Uploaded" className="uploaded-image" />
                 </div>
             ) : (
-                <p>Перетащите изображение сюда или нажмите, чтобы выбрать файл</p>
-            )}
-        </div>
+                <p>Перетащите изображение сюда</p>
+            )} */}
+        {/* </input> */}
         {img_path && (
         <button
             type="button"
