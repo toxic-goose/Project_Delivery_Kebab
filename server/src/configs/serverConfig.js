@@ -22,7 +22,7 @@ const corsOptions = {
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, 'uploads/'); // Папка для сохранения загруженных файлов
+      cb(null, './src/uploads/'); // Папка для сохранения загруженных файлов
     },
     filename: (req, file, cb) => {
       cb(null, file.originalname); // Сохранение файла с оригинальным именем
@@ -60,6 +60,8 @@ const serverConfig = (app) => {
   app.use(removeXPoweredBy)
 
   app.use('/api', indexRouter)
+
+  app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
   app.post('/upload', upload.single('file'), (req, res) => {
     res.send('Файл загружен успешно!');
