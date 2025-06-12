@@ -92,7 +92,7 @@ export default function OrderPage({ user }) {
             />
             )
         } */}
-        <div
+        {/* <div
             className='drag-drop-area'
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -106,7 +106,38 @@ export default function OrderPage({ user }) {
             ) : (
                 <p>Перетащите изображение сюда</p>
             )} 
-            </div> 
+            </div>  */}
+        <div
+            className='drag-drop-area'
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+        >
+            {img_path ? (
+                <div className="image-wrapper">
+                    <img src={img_path} alt="Uploaded" className="uploaded-image" />
+                </div>
+            ) : (
+                <>
+                    <p>Перетащите изображение сюда или выберите файл</p>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        style={{ display: 'none' }}
+                        id="fileInput"
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                                const filePath = URL.createObjectURL(file);
+                                setInputs((prev) => ({ ...prev, img_path: filePath }));
+                            }
+                        }}
+                    />
+                    <label htmlFor="fileInput" className="file-input-label">
+                        Нажмите здесь, чтобы выбрать файл
+                    </label>
+                </>
+            )}
+        </div>
         {img_path && (
         <button
             type="button"
