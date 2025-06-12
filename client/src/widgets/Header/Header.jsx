@@ -33,7 +33,7 @@ export default function Header({ user, setUser }) {
         Главная
       </NavLink>
       <NavLink
-        to="/counter"
+        to="/pageall"
         className={({ isActive }) =>
           `header__link ${isActive ? "header__link_active" : ""}`
         }
