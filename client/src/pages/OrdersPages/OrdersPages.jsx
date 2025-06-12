@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaf
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { OrdersApi } from '../../entities/OrdersApi';
+import { NavLink } from 'react-router';
 
 // Фикс для отображения стандартных иконок маркеров
 delete L.Icon.Default.prototype._getIconUrl;
@@ -401,7 +402,10 @@ const OrdersPages = () => {
               fontSize: '20px',
               fontWeight: '600'
             }}>Список заказов</h2>
-            
+
+            <NavLink to={'/orderPage/new'}>
+              <button>Создать заказ</button>
+            </NavLink>
             <span style={{
               backgroundColor: '#4dccbd',
               color: 'white',
@@ -495,12 +499,16 @@ const OrdersPages = () => {
                   justifyContent: 'space-between',
                   marginTop: '15px'
                 }}>
+                  <NavLink to={`/orderPage/${order.id}`}>
                   <button style={styles.primaryButton}
                   onMouseOver={(e) => e.target.style.backgroundColor = '#3aa897'}
                   onMouseOut={(e) => e.target.style.backgroundColor = '#4dccbd'}
                   >
                     Подробнее
                   </button>
+                  </NavLink>        
+                              
+                          
                   
                   <button style={styles.dangerButton}
                   onMouseOver={(e) => e.target.style.backgroundColor = '#ff4444'}

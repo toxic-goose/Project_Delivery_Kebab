@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { OrdersApi } from "../../../../entities/OrdersApi";
 import { useNavigate } from "react-router";
+import "toastr/build/toastr.min.css";
+import toastr from "toastr"
+import { NavLink } from 'react-router';
 
 const INITIAL_INPUTS_DATA = {
   order_name: "",
@@ -10,7 +13,7 @@ const INITIAL_INPUTS_DATA = {
   sale: "",
 };
 
-export default function OrderForm({ orderId }) {
+export default function OrderForm({ orderId, user }) {
   const navigate = useNavigate()
   const [inputs, setInputs] = useState(INITIAL_INPUTS_DATA);
 
@@ -50,7 +53,8 @@ export default function OrderForm({ orderId }) {
     try {
       if (orderId) {
         await OrdersApi.update(orderId, inputs);
-        navigate("/");
+        toastr.info("Заказ успешно обновлён!");
+        navigate("/page");
       } else {
         const { statusCode, error: responseError } =
           await OrdersApi.createOrder(inputs);
@@ -60,8 +64,9 @@ export default function OrderForm({ orderId }) {
         }
 
         if (statusCode === 200) {
+          toastr.info("Заказ успешно создан!")
           setInputs(INITIAL_INPUTS_DATA);
-          navigate("/");
+          navigate("/page");
         }
       }
     } catch (error) {
@@ -173,10 +178,15 @@ export default function OrderForm({ orderId }) {
         onChange={onChangeHandler}
         value={sale}
       />
-
-      <button className="button" type="submit">
-        Создать
-      </button>
+      {orderId ? (
+        <button className="button" type="submit">
+          Обновить
+        </button>
+      ): (
+          <button className="button" type="submit">
+            Создать
+        </button>
+      )}
     </form>
   );
 }

@@ -7,8 +7,8 @@ export class OrdersApi {
         return data
     }
 
-    static async register(inputs) {
-        const { data } = await axiosInstance.post('/order/register', inputs)
+    static async createOrder(inputs) {
+        const { data } = await axiosInstance.post('/order/createOrder', inputs)
         return data
     }
 

@@ -14,7 +14,7 @@ export default function OrderPage({ user }) {
     {user.is_buyer ? (
         <OrderCard orderId={orderId} />
     ) : (
-        <OrderForm orderId={orderId}/>
+        <OrderForm orderId={orderId} user={user}/>
     )}
     </>
     )
