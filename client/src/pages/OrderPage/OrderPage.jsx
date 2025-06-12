@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import './OrderPage.css'
-import OrderApi from '../../entities/OrderApi';
+import { OrdersApi } from '../../entities/OrdersApi';
 import { useNavigate } from 'react-router';
 
 const INITIAL_INPUTS_DATA = {
@@ -43,7 +43,7 @@ export default function OrderPage() {
         const {
         statusCode,
         error: responseError,
-    } = await OrderApi.createOrder(inputs);
+    } = await OrdersApi.createOrder(inputs);
 
     if (responseError) {
         alert(responseError);
