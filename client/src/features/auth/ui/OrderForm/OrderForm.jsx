@@ -75,6 +75,7 @@ export default function OrderForm({ orderId, user }) {
     }
   };
 
+
   const { order_name, img_path, description, price, sale } = inputs;
   return (
     <form onSubmit={onSubmitHandler} className="orderPage">
