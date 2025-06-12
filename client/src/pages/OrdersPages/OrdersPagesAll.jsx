@@ -4,7 +4,12 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router';
 
 
+
+
 export default function OrdersPagesAll() {
+
+
+
     const [orders, setOrders] = useState([])
     useEffect(() => {
         const getOrders = async () => {
@@ -24,7 +29,7 @@ export default function OrdersPagesAll() {
 return (
     <div>1234
     {orders.map((el) =>
-        <div key={el.id}>
+        <div key={el.id} element={element}>
         <hr />
         <h3>{el.order_name}</h3>
         <h4>{el.img_path}</h4> 
