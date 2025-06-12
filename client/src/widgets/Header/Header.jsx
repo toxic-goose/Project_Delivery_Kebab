@@ -40,6 +40,14 @@ export default function Header({ user, setUser }) {
       >
         Заказы
       </NavLink>
+      <NavLink
+        to="/basket"
+        className={({ isActive }) =>
+          `header__link ${isActive ? "header__link_active" : ""}`
+        }
+      >
+        Корзина
+      </NavLink>
       {!user.user_name && (
         <NavLink
           to="/auth"
