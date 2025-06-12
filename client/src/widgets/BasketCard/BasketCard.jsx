@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
 
-export default function BasketCard() {
+export default function BasketCard({ basket }) {
   return (
-    <div>BasketCard</div>
-  )
+    <>
+      <div>{basket.order_name}</div>
+
+      <div>Удалить</div>
+    </>
+  );
 }
