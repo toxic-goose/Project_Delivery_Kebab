@@ -2,41 +2,19 @@ import React from 'react'
 import { useState } from 'react';
 import './OrderPage.css'
 import OrderApi from '../../entities/OrderApi';
+import { useNavigate } from 'react-router';
+
+const INITIAL_INPUTS_DATA = {
+    order_name: "",
+    img_path: "",
+    description: "",
+    price: "",
+    sale: ""
+};
 
 export default function OrderPage() {
+    const navigate = useNavigate()
 
-    const onSubmitHandler = async (event) => {
-        event.preventDefault();
-        try {
-            const {
-            statusCode,
-            data,
-            error: responseError,
-        } = await OrderApi.register(inputs);
-    
-        if (responseError) {
-            alert(responseError);
-            return;
-        }
-    
-        if (statusCode === 201) {
-            setUser(data.user);
-            setInputs(INITIAL_INPUTS_DATA);
-            navigate("/");
-        }
-        } catch (error) {
-            console.log(error);
-            alert(error.message);
-        }
-    };
-
-    const INITIAL_INPUTS_DATA = {
-        order_name: "",
-        img_path: "",
-        description: "",
-        price: "",
-        sale: ""
-    };
     const [inputs, setInputs] = useState(INITIAL_INPUTS_DATA);
 
     const onChangeHandler = (event) => {
@@ -59,11 +37,34 @@ export default function OrderPage() {
         setInputs((prev) => ({ ...prev, img_path: "" })); // Сбрасываем путь к изображению
     };
 
+    const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    try {
+        const {
+        statusCode,
+        error: responseError,
+    } = await OrderApi.createOrder(inputs);
+
+    if (responseError) {
+        alert(responseError);
+        return;
+    }
+
+    if (statusCode === 200) {
+        setInputs(INITIAL_INPUTS_DATA);
+        navigate("/");
+    }
+    } catch (error) {
+        console.log(error);
+        alert(error.message);
+    }
+    };
+
     const { order_name, img_path, description, price, sale } = inputs;
 
     return (
     <>
-    <form className='orderPage'>
+    <form onSubmit={onSubmitHandler} className='orderPage'>
         <input 
             type="text"
             name="order_name"
@@ -72,7 +73,7 @@ export default function OrderPage() {
             onChange={onChangeHandler}
             value={order_name}
         />
-        {
+        {/* {
             img_path ? (
                 <div className="image-wrapper">
                     <img src={img_path} alt="Uploaded" className="uploaded-image" />
@@ -85,22 +86,22 @@ export default function OrderPage() {
             type="file"
             />
             )
-        }
-        {/* <input
+        } */}
+        <div
             className='drag-drop-area'
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             type="file"
-        > */}
-            {/* {img_path ? (
+        > 
+            {img_path ? (
 
                 <div className="image-wrapper">
                     <img src={img_path} alt="Uploaded" className="uploaded-image" />
                 </div>
             ) : (
                 <p>Перетащите изображение сюда</p>
-            )} */}
-        {/* </input> */}
+            )} 
+            </div> 
         {img_path && (
         <button
             type="button"
