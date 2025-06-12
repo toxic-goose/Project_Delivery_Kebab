@@ -5,7 +5,7 @@ const path = require("path");
 const BasketController = require("../controllers/Basket.controller");
 
 router
-  .get("/", BasketController.getAll)
+  .get("/", BasketController.getAllByUser)
   .delete("/:id", BasketController.delete)
   .get("/:id", BasketController.getOne);
 

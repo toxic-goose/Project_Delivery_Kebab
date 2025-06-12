@@ -9,8 +9,8 @@ export default function BasketList() {
         const getBasket = async () => {
             try {
                 const { data } = await BasketApi.getAll()
-                setBasket(data)
                 console.log(data)
+                setBasket(data)
             } catch (error) {
               console.log(error)  
             }
