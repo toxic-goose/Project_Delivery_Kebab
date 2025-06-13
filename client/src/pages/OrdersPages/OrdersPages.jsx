@@ -121,7 +121,7 @@ const styles = {
   }
 };
 
-const OrdersPages = () => {
+const OrdersPages = ({user}) => {
   const [orders, setOrders] = useState([]);
   const [center] = useState([55.751244, 37.618423]);
   const [markers, setMarkers] = useState([]);
@@ -402,10 +402,13 @@ const OrdersPages = () => {
               fontSize: '20px',
               fontWeight: '600'
             }}>Список заказов</h2>
-
+            
+            {!user.is_buyer && (
             <NavLink to={'/orderPage/new'}>
               <button>Создать заказ</button>
             </NavLink>
+            )}
+            
             <span style={{
               backgroundColor: '#4dccbd',
               color: 'white',

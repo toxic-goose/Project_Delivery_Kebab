@@ -56,7 +56,7 @@ export default function Header({ user, setUser }) {
               `header__link ${isActive ? "header__link_active" : ""}`
             }
           >
-            Привет {user.user_name}
+            Привет, {user.user_name}!
           </NavLink>
         ) : (
           <NavLink
@@ -65,7 +65,7 @@ export default function Header({ user, setUser }) {
               `header__link ${isActive ? "header__link_active" : ""}`
             }
           >
-            Привет Гость!
+            Привет, Гость!
           </NavLink>
         )}
 

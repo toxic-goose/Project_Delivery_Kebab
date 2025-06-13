@@ -6,6 +6,7 @@ import { NavLink } from 'react-router';
 const INITIAL_INPUTS_DATA = {
     order_name: "",
     img_path: "",
+    location: "",
     description: "",
     price: "",
     sale: ""
@@ -26,12 +27,15 @@ useEffect(() => {
     getOrder()  
 }, [])
 
-  const { order_name, img_path, description, price, sale } = inputs;
+  const { order_name, img_path, location, description, price, sale } = inputs;
   return (
     <article className="order-card" role="region" aria-label={`Заказ ${order_name}`}>
       <h2 className="order-title">{order_name || "Без названия заказа"}</h2>
       {img_path ? (
+        <>
         <img src={img_path} alt={`Изображение для заказа ${order_name}`} className="order-image" />
+        <span>{location}</span>
+        </>
       ) : (
         <div className="order-image order-image--placeholder" aria-label="Изображение отсутствует" />
       )}

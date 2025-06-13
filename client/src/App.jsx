@@ -12,6 +12,7 @@ import { setAccessToken } from "./shared/lib/axiosInstance";
 import UserApi from "./entities/UserApi";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import FileUpload from "./features/auth/ui/FileUploadMulter/FileUpload";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 
 function App() {
@@ -40,12 +41,13 @@ function App() {
         <Route path="/" element={<Root user={user} setUser={setUser} />}>
           <Route index element={<MainPage user={user} />} />
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
-          <Route path="/page" element={<OrdersPages />} />
+          <Route path="/page" element={<OrdersPages user={user}/>} />
           {/* <Route path="/pageall" element={<OrdersPagesAll />} /> */}
           <Route path="/basket" element={<BasketPage />} />
           <Route path="/orderPage/:orderId" element={<OrderPage user={user}/>} />
           <Route path="/orderPage/new" element={<OrderPage user={user}/>}/>
           <Route path="/upload" element={<FileUpload />}/>
+          <Route path="/profile" element={<ProfilePage user={user}/>} />
 
         </Route>
       </Routes>
