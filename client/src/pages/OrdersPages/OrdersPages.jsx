@@ -518,16 +518,18 @@ const OrdersPages = ({user}) => {
                   marginTop: '15px'
                 }}>
                   <NavLink to={`/orderPage/${order.id}`}>
+
+                  {user.user_name && (
                   <button style={styles.primaryButton}
                   onMouseOver={(e) => e.target.style.backgroundColor = '#3aa897'}
                   onMouseOut={(e) => e.target.style.backgroundColor = '#4dccbd'}
                   >
                     Подробнее
                   </button>
+                  )}
                   </NavLink>        
                               
-                          
-                  
+                  {user && user.is_buyer === false && (
                   <button style={styles.dangerButton}
                   onMouseOver={(e) => e.target.style.backgroundColor = '#ff4444'}
                   onMouseOut={(e) => e.target.style.backgroundColor = '#ff6b6b'}
@@ -535,6 +537,7 @@ const OrdersPages = ({user}) => {
                   >
                     Удалить
                   </button>
+                  )}
                 </div>
               </div>
             )) : (
