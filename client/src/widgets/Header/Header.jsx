@@ -48,6 +48,9 @@ export default function Header({ user, setUser }) {
       >
         Корзина
       </NavLink>
+
+
+
       {!user.user_name && (
         <NavLink
           to="/auth"

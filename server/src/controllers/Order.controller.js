@@ -40,7 +40,8 @@ static async getOne(req, res) {
 static async register(req, res) {
     try {
     const { order_name, img_path, description, price, sale, location } = req.body
-    
+    // const { path:img_path } = req.file
+    console.log(req.file);
     const order = await OrderService.registerOrder({
         order_name, img_path, description, price, sale, location
     })
