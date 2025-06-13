@@ -114,7 +114,7 @@ const styles = {
     cursor: 'pointer',
     fontSize: '14px',
     transition: 'all 0.3s',
-    flex: 1,
+    flex: 0.1,
     '&:hover': {
       backgroundColor: '#ff4444'
     }
@@ -443,8 +443,13 @@ const OrdersPages = () => {
                   fontWeight: '600'
                 }}>{order.order_name}</h3>
 
-                <div>
-                  <img src={`${order.img_path}`} alt="Тут должна быть картинка" />
+                <div >
+                    <img src={`${order.img_path}`} alt="Тут должна быть картинка"
+                        style={{
+                            height: "150px",
+                            width: '150px',
+                            borderRadius: '10px'}} 
+                    />
                 </div>
                 
                 <div style={{ margin: '10px 0' }}>
