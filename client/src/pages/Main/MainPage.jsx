@@ -9,11 +9,11 @@ export default function MainPage() {
     "http://localhost:3000/uploads/pizza.jpg",
     "http://localhost:3000/uploads/shava.jpg",
     "http://localhost:3000/uploads/sushi.jpg",
-    "http://localhost:3000/uploads/shreckOnil.jpg",
-    "http://localhost:3000/uploads/IMG_20200619_112457.jpg",
-    "http://localhost:3000/uploads/IMG_20200508_201150.jpg",
-    "http://localhost:3000/uploads/IMG_20200208_091506.jpg",
-    "http://localhost:3000/uploads/IMG_20191109_112514.jpg",
+    "http://localhost:3000/uploads/plov.jpg",
+    "http://localhost:3000/uploads/wok.jpg",
+    "http://localhost:3000/uploads/spaghetti.jpg",
+    "http://localhost:3000/uploads/hinkali.jpg",
+    
   ];
 
   const itemsToShow = 3;
