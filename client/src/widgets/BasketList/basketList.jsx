@@ -1,23 +1,22 @@
-import React from 'react'
-import BasketCard from '../BasketCard/BasketCard'
-import { useState, useEffect } from 'react'
-import { BasketApi } from '../../entities/BasketApi'
+import React from "react";
+import BasketCard from "../BasketCard/BasketCard";
+import { useState, useEffect } from "react";
+import { BasketApi } from "../../entities/BasketApi";
 
 export default function BasketList() {
-    const [basket, setBasket] = useState([])
-    useEffect (() => {
-        const getBasket = async () => {
-            try {
-                const { data } = await BasketApi.getAll()
-                console.log(data)
-                setBasket(data)
-            } catch (error) {
-              console.log(error)  
-            }
-        }
-        getBasket() 
-        
-    }, [])
+  const [basket, setBasket] = useState([]);
+  useEffect(() => {
+    const getBasket = async () => {
+      try {
+        const { data } = await BasketApi.getAll();
+        console.log(data);
+        setBasket(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBasket();
+  }, []);
 
   return (
     <>
@@ -27,5 +26,5 @@ export default function BasketList() {
         <h1>Корзина пуста</h1>
       )}
     </>
-  )
+  );
 }
