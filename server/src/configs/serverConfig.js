@@ -64,6 +64,8 @@ const serverConfig = (app) => {
   app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
   app.post('/upload', upload.single('file'), (req, res) => {
+    console.log(req.file);
+    console.log(req.body);
     res.send('Файл загружен успешно!');
   });
   

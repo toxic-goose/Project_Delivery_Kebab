@@ -442,6 +442,10 @@ const OrdersPages = () => {
                   fontSize: '16px',
                   fontWeight: '600'
                 }}>{order.order_name}</h3>
+
+                <div>
+                  <img src={`${order.img_path}`} alt="Тут должна быть картинка" />
+                </div>
                 
                 <div style={{ margin: '10px 0' }}>
                   <p style={{ 

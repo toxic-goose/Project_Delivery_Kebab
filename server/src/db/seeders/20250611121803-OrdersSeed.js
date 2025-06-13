@@ -7,7 +7,7 @@ module.exports = {
     await queryInterface.bulkInsert('Orders', [
       {
         order_name: 'Пакет со сладким',
-        img_path: 'Здесь будет фото',
+        img_path: 'https://avatars.mds.yandex.net/i?id=08b3db0427180d029130dc051106616e_l-5237743-images-thumbs&n=13',
         description: 'Самые сладкие',
         price: 1000,
         sale: 500,
@@ -16,7 +16,7 @@ module.exports = {
       },
       {
         order_name: 'Пакет с не сладким',
-        img_path: 'Здесь будет фото',
+        img_path: 'https://avatars.mds.yandex.net/i?id=bfe6b125b2c531537640a2115be53424_l-5545493-images-thumbs&n=13',
         description: 'Самые не сладкие',
         price: 500,
         sale: 250,
