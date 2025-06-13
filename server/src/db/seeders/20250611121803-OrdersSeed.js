@@ -6,31 +6,31 @@ module.exports = {
     
     await queryInterface.bulkInsert('Orders', [
       {
-        order_name: 'Пакет со сладким',
-        img_path: 'https://avatars.mds.yandex.net/i?id=08b3db0427180d029130dc051106616e_l-5237743-images-thumbs&n=13',
+        order_name: 'Шоколадки в ассортименте',
+        img_path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_tIOPgmRS2CqLdy6KaDdUnXIzGrwNqNjprRfwLE-Pgz-l9_nt1xet7dNqu9ZHF4icgxA&usqp=CAU',
         description: 'Самые сладкие',
-        price: 1000,
-        sale: 500,
+        price: 1560,
+        sale: 780,
         courier_id: 2,
-        location: 'Москва, ул. Розы Сябитовой. 38'
+        location: 'Москва, ул. Розы Сябитовой, 69'
       },
       {
         order_name: 'Пакет с не сладким',
-        img_path: 'https://avatars.mds.yandex.net/i?id=bfe6b125b2c531537640a2115be53424_l-5545493-images-thumbs&n=13',
-        description: 'Самые не сладкие',
+        img_path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSonmxINYDFyd5WNkPqCUoNX2h0VBFsgr_Opw&s',
+        description: 'Для Михаила Черничкина',
         price: 500,
         sale: 250,
         courier_id: 3,
-        location: 'Москва, ул. сына Розы Сябитовой. 38'
+        location: 'Москва, ул. Зорге, 12'
       },
       {
         order_name: 'Пакет с пакетами',
-        img_path: 'Здесь будет фото',
+        img_path: 'https://whitepack.ru/upload/iblock/8ea/k3ghn42o07ra70cax29n2lshhqh7js50.jpg',
         description: 'Самые крепкие',
         price: 700,
         sale: 350,
         courier_id: 2,
-        location: 'Москва, ул. Петровка, 38'
+        location: 'Санкт-Петербург, ул. Садовая, 20'
       },
     ], {})
   },
