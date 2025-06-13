@@ -1,0 +1,18 @@
+.basket-page {
+  max-width: 800px; /* Максимальная ширина страницы */
+  margin: 0 auto; /* Центрирование страницы */
+  padding: 20px; /* Отступы вокруг содержимого */
+  font-family: 'Poppins', sans-serif; /* Шрифт для всей страницы */
+  color: #333; /* Цвет текста */
+}
+.basket-title {
+  font-size: 2rem; /* Размер заголовка */
+  font-weight: 600; /* Жирность заголовка */
+  margin-bottom: 20px; /* Отступ снизу */
+  text-align: center; /* Центрирование заголовка */
+}
+.empty-basket {
+  text-align: center; /* Центрирование текста */
+  font-size: 1.5rem; /* Размер текста для пустой корзины */
+  color: #888; /* Цвет текста для пустой корзины */
+}

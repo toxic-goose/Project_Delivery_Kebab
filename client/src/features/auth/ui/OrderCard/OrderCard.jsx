@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { OrdersApi } from '../../../../entities/OrdersApi';
 import { NavLink } from 'react-router';
+import './OrderCard.css'
 
 const INITIAL_INPUTS_DATA = {
     order_name: "",
