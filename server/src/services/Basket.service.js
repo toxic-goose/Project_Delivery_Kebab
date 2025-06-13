@@ -39,7 +39,7 @@ class BasketService {
             include: [{
               model: Order,
               as: 'Order', // Используем уникальный алиас
-              attributes: ['id', 'order_name', 'price', 'location', 'description'],
+              attributes: ['id', 'order_name', 'price', 'location', 'description', 'img_path', 'sale'],
               include: [{
                 model: User,
                 as: 'Courier', // Алиас для курьера
