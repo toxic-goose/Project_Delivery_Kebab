@@ -13,6 +13,18 @@ module.exports = {
         buyer_id: 1
       },
       {
+        order_id: 4,
+        buyer_id: 4
+      },
+      {
+        order_id: 5,
+        buyer_id: 4
+      },
+      {
+        order_id: 6,
+        buyer_id: 5
+      },
+      {
         order_id: 3,
         buyer_id: 1
       },
