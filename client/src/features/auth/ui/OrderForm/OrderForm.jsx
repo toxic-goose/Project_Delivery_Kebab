@@ -8,6 +8,7 @@ import { NavLink } from 'react-router';
 const INITIAL_INPUTS_DATA = {
   order_name: "",
   img_path: "",
+  location: "",
   description: "",
   price: "",
   sale: "",
@@ -76,7 +77,7 @@ export default function OrderForm({ orderId, user }) {
   };
 
 
-  const { order_name, img_path, description, price, sale } = inputs;
+  const { order_name, img_path, location, description, price, sale } = inputs;
   return (
     <form onSubmit={onSubmitHandler} className="orderPage">
       <input
@@ -156,6 +157,13 @@ export default function OrderForm({ orderId, user }) {
           Удалить изображение
         </button>
       )}
+      <input
+        type="text"
+        name="location"
+        placeholder="Введите адрес:"
+        onChange={onChangeHandler}
+        value={location}
+      />
       <input
         type="text"
         name="description"

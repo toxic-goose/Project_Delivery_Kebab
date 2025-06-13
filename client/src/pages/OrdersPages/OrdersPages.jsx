@@ -121,7 +121,7 @@ const styles = {
   }
 };
 
-const OrdersPages = () => {
+const OrdersPages = ({user}) => {
   const [orders, setOrders] = useState([]);
   const [center] = useState([55.751244, 37.618423]);
   const [markers, setMarkers] = useState([]);
@@ -230,9 +230,15 @@ const OrdersPages = () => {
     return null;
   };
 
-  const removeMarker = (id) => {
+  const removeMarker = async (id) => {
     setMarkers(prev => prev.filter(marker => marker.id !== id));
     setOrders(prev => prev.filter(order => order.id !== id));
+    try {
+      await OrdersApi.delete(id)
+      // setOrders(deleteOrder.data)
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (isLoading) {
@@ -403,9 +409,12 @@ const OrdersPages = () => {
               fontWeight: '600'
             }}>Список заказов</h2>
 
+            {user && user.is_buyer === false && (
             <NavLink to={'/orderPage/new'}>
               <button>Создать заказ</button>
             </NavLink>
+            )}
+            
             <span style={{
               backgroundColor: '#4dccbd',
               color: 'white',
