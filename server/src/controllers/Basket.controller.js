@@ -4,6 +4,8 @@ const { formatResponse } = require("../utils/formatResponse");
 class BasketController {
   // * контроллер на получение всех для покупателя с id 1
   static async getAllByUser(req, res) {
+
+    
     try {
       const result = await BasketSevice.getOrdersByUser();
       res.status(200).json(
