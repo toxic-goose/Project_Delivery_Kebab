@@ -13,7 +13,6 @@ export default function MainPage() {
     "http://localhost:3000/uploads/wok.jpg",
     "http://localhost:3000/uploads/spaghetti.jpg",
     "http://localhost:3000/uploads/hinkali.jpg",
-    
   ];
 
   const itemsToShow = 3;
