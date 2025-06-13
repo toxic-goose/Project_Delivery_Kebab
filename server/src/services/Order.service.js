@@ -22,7 +22,7 @@ class OrderService {
     return result
     }
    // * удаление
-    static async deleteUser(id) {
+    static async deleteOrder(id) {
     const order = await Order.findByPk(id)
     order.destroy()
     return id

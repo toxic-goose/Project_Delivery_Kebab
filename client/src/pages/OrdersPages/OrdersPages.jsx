@@ -230,9 +230,15 @@ const OrdersPages = ({user}) => {
     return null;
   };
 
-  const removeMarker = (id) => {
+  const removeMarker = async (id) => {
     setMarkers(prev => prev.filter(marker => marker.id !== id));
     setOrders(prev => prev.filter(order => order.id !== id));
+    try {
+      await OrdersApi.delete(id)
+      // setOrders(deleteOrder.data)
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (isLoading) {
@@ -402,8 +408,8 @@ const OrdersPages = ({user}) => {
               fontSize: '20px',
               fontWeight: '600'
             }}>Список заказов</h2>
-            
-            {!user.is_buyer && (
+
+            {user && user.is_buyer === false && (
             <NavLink to={'/orderPage/new'}>
               <button>Создать заказ</button>
             </NavLink>
